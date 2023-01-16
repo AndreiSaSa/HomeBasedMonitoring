@@ -1,5 +1,7 @@
 package se.uu.homebasedmonitoring;
 
+import java.util.List;
+
 public abstract class User {
 
     protected int userId;
@@ -10,6 +12,8 @@ public abstract class User {
     protected String address;
     protected int rating = 0;
     protected int numOfRequests = 0;
+    protected List<UserRequest> listOfRequests;
+    protected NotificationHandler notificationHandler;
 
     public void updateInfo(String email, String password, String phoneNumber, String address) {
         throw new UnsupportedOperationException("Not implemented yet");
@@ -89,5 +93,12 @@ public abstract class User {
 
     public void setNumOfRequests(int numOfRequests) {
         this.numOfRequests = numOfRequests;
+    }
+
+    public void addRequest(UserRequest request){
+        this.listOfRequests.add(request);
+    }
+    public void removeRequest(int requestId){
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 }
